@@ -6,8 +6,19 @@
     <title>משחקים משפחתיים</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .modal-content {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <div class="instructions-icon">
+            <i class="fas fa-info-circle fa-2x" onclick="openInstructions()"></i>
+        </div>
+    </div>
     <div class="container">
         <h1>משחקים משפחתיים</h1>
         <div class="games-grid">
@@ -57,6 +68,41 @@
             </a>
         </div>
     </div>
+
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInstructions()">&times;</span>
+            <h2>הוראות למשחקים</h2>
+            <div id="instructions-text">
+                <h3>משחק זיכרון</h3>
+                <p>התאימו זוגות של תמונות משפחתיות על ידי לחיצה על קלפים כדי לחשוף אותם ולמצוא זוגות תואמים.</p>
+                <h3>משחק זיכרון תמונות</h3>
+                <p>במשחק זה תצפו בתמונה משפחתית ותשאלו שאלה עליה. עליכם לזכור את הפרטים כדי לענות נכון. לאחר מכן תוצג התשובה הנכונה כדי לבדוק את זיכרונכם.</p>
+                <h3>פאזל תמונות</h3>
+                <p>גררו והניחו חלקי פאזל כדי להרכיב את התמונה המלאה.</p>
+                <h3>תפזורת משפחתית</h3>
+                <p>חפשו ומצאו את שמות בני המשפחה המוסתרים בתוך התפזורת.</p>
+                <h3>מי אמר מה?</h3>
+                <p>קראו את המשפטים ונסו לנחש מי מבני המשפחה אמר אותם.</p>
+                <h3>אילו... אז...</h3>
+                <p>שחקו במשחק מצחיק של שילובי משפטים אקראיים ותראו מה יוצא!</p>
+                <h3>אם הייתי פוגש...</h3>
+                <p>במשחק זה תדמיינו מפגשים מצחיקים עם דמויות שונות במקומות מפתיעים. עליכם לבחור את התגובה המתאימה ביותר לסיטואציה.</p>
+                <h3>השלם את המשפט</h3>
+                <p>השלימו את המשפטים המצחיקים והמהנים עם בני המשפחה.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInstructions() {
+            document.getElementById('instructionsModal').style.display = 'block';
+        }
+
+        function closeInstructions() {
+            document.getElementById('instructionsModal').style.display = 'none';
+        }
+    </script>
 
     <div class="modal" id="successModal">
         <div class="modal-content">
