@@ -1,0 +1,235 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --secondary-color: #2196F3;
+    --secondary-hover: #1976D2;
+    --danger-color: #f44336;
+    --danger-hover: #d32f2f;
+    --success-color: #4CAF50;
+    --background: #e0e5ec;
+    --shadow-color: #a3b1c6;
+    --highlight-color: #ffffff;
+}
+
+.word-input-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.word-input {
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.word-list {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.word-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.word-list li {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.word-list li button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    line-height: 1;
+}
+
+.game-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.word-search-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.word-search-board {
+    display: grid;
+    gap: 2px;
+    background: #f0f0f0;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.letter-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.letter-cell.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.letter-cell.found {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.letter-cell.hint {
+    background-color: #ffd700;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.remaining-words {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+}
+
+.remaining-words ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.remaining-words li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.remaining-words li.found {
+    color: var(--secondary-color);
+    text-decoration: line-through;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4A5568;
+    background: var(--background);
+    box-shadow: 6px 6px 12px var(--shadow-color),
+                -6px -6px 12px var(--highlight-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button:hover {
+    box-shadow: 4px 4px 8px var(--shadow-color),
+                -4px -4px 8px var(--highlight-color);
+}
+
+.button:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-color),
+                inset -4px -4px 8px var(--highlight-color);
+}
+
+.button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+    background: #f0f0f0;
+}
+
+.start-button {
+    background: linear-gradient(145deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.2),
+                -6px -6px 12px rgba(255,255,255,0.1);
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+.start-button:hover {
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2),
+                -4px -4px 8px rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.start-button:active {
+    box-shadow: inset 4px 4px 8px rgba(0,0,0,0.2),
+                inset -4px -4px 8px rgba(255,255,255,0.1);
+    transform: translateY(0);
+}
+
+.start-button:disabled {
+    background: #cccccc;
+    box-shadow: none;
+    transform: none;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .letter-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}

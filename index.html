@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחקים משפחתיים</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>משחקים משפחתיים</h1>
+        <div class="games-grid">
+
+            <div class="game-card" onclick="location.href='memory.html'">
+                <i class="fas fa-clone fa-3x"></i>
+                <h2>משחק זיכרון</h2>
+                <p>התאימו זוגות של תמונות משפחתיות</p>
+            </div>
+            <div class="game-card" onclick="location.href='puzzle.html'">
+                <i class="fas fa-puzzle-piece fa-3x"></i>
+                <h2>פאזל תמונות</h2>
+                <p>הרכיבו פאזל מתמונות משפחתיות</p>
+            </div>
+            <div class="game-card" onclick="location.href='wordsearch.html'">
+                <i class="fas fa-search fa-3x"></i>
+                <h2>תפזורת משפחתית</h2>
+                <p>מצאו את שמות בני המשפחה</p>
+            </div>
+            <div class="game-card" onclick="location.href='whosaid.html'">
+                <i class="fas fa-comment-dots fa-3x"></i>
+                <h2>מי אמר מה?</h2>
+                <p>נחשו מי אמר את המשפטים המצחיקים</p>
+            </div>
+
+            <div class="game-card" onclick="location.href='ifThen.html'">
+                <i class="fas fa-random fa-2x"></i>
+                <h3>אילו... אז...</h3>
+                <p>משחק מצחיק של שילובי משפטים אקראיים</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='meeting.html'">
+                <i class="fas fa-street-view fa-2x"></i>
+                <h3>אם הייתי פוגש...</h3>
+                <p>מפגשים מצחיקים במקומות מפתיעים</p>
+            </div>
+
+            <a href="puzzle.html" class="game-card">
+                <i class="fas fa-puzzle-piece"></i>
+                <h3>פאזל תמונות</h3>
+                <p>צרו פאזל מתמונות משפחתיות</p>
+            </a>
+            <a href="complete-sentence.html" class="game-card">
+                <i class="fas fa-comment-dots"></i>
+                <h3>השלם את המשפט</h3>
+                <p>משחק משפחתי מצחיק ומהנה</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">סגור</button>
+            <h2>שגיאה</h2>
+            <p>אנא בחר לפחות 2 תמונות למשחק במודל הנוכחי</p>
+        </div>
+    </div>
+
+    <script>
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+    </script>
+</body>
+</html>

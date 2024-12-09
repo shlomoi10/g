@@ -1,0 +1,570 @@
+/* Game Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Setup Section */
+.setup-section {
+    background: var(--background);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+.upload-container {
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.upload-container.drag-over {
+    background: rgba(74, 144, 226, 0.1);
+    border-color: var(--primary-color);
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.upload-label i {
+    font-size: 2em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Difficulty Controls */
+.difficulty-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.difficulty-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+.difficulty-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Custom Size Inputs */
+.custom-size {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--background);
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+input[type="number"] {
+    width: 80px;
+    border: none;
+    background: transparent;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Game Controls */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+/* Game Stats */
+.game-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.timer, .moves {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+/* Puzzle Board */
+.game-section {
+    display: none;
+}
+
+.game-section.active {
+    display: block;
+}
+
+.puzzle-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.puzzle-board {
+    display: grid;
+    gap: 2px;
+    background: var(--background);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--background);
+    border-radius: 5px;
+    cursor: move;
+    transition: transform 0.2s ease;
+    user-select: none;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.02);
+}
+
+.puzzle-piece.dragging {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Preview Panel */
+.preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#previewImage {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+/* Win Message */
+.win-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-elevation-high);
+}
+
+.win-message.active {
+    display: block;
+    animation: popIn 0.5s ease;
+}
+
+.win-message i {
+    font-size: 3em;
+    color: gold;
+    margin-bottom: 15px;
+}
+
+.win-stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+@keyframes popIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .puzzle-container {
+        flex-direction: column;
+    }
+    
+    .preview-panel {
+        order: -1;
+    }
+    
+    #previewImage {
+        max-width: 100%;
+    }
+    
+    .difficulty-controls,
+    .controls {
+        justify-content: center;
+    }
+}
+
+:root {
+    --primary-color: #4A90E2;
+    --primary-hover: #357ABD;
+    --secondary-color: #45B7D1;
+    --secondary-hover: #3B9EB5;
+    --success-color: #2ECC71;
+    --success-hover: #27AE60;
+    --background: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #2C3E50;
+    --border-radius: 12px;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --highlight-color: rgba(255, 255, 255, 0.8);
+}
+
+.setup-section,
+.game-section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.puzzle-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button i {
+    font-size: 1.2rem;
+}
+
+.button.success {
+    background: var(--success-color);
+}
+
+.button.success:hover {
+    background: var(--success-hover);
+}
+
+.difficulty-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-difficulty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-difficulty input {
+    width: 60px;
+    padding: 0.3rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.preview-section {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.preview-image {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.start-button {
+    display: block;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+}
+
+#puzzle {
+    display: grid;
+    gap: 4px;
+    margin: 20px auto;
+    padding: 10px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    z-index: 2;
+}
+
+.puzzle-piece.dragging {
+    cursor: grabbing;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    z-index: 1000;
+    opacity: 0.9;
+}
+
+.puzzle-piece img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.upload-container {
+    margin: 20px 0;
+    padding: 30px;
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    background: var(--background);
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+    border-color: var(--primary-hover);
+    background: var(--card-background);
+}
+
+.upload-container.drag-over {
+    border-color: var(--success-color);
+    background: rgba(46, 204, 113, 0.1);
+    transform: scale(1.02);
+}
+
+#imageUpload {
+    display: none;
+}
+
+.upload-label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.upload-label i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.difficulty-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.difficulty-button {
+    padding: 8px 16px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.difficulty-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.win-message {
+    font-size: 1.5rem;
+    color: var(--success-color);
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.win-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.win-message i {
+    font-size: 2rem;
+}
+
+.preview-panel {
+    text-align: center;
+}
+
+.reference-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .puzzle-container {
+        padding: 10px;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+    }
+}

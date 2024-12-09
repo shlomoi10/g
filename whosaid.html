@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מי אמר מה? - משחק משפחתי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="whosaid.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                חזרה לדף הבית
+            </a>
+            <h1>מי אמר מה?</h1>
+        </header>
+
+        <div class="setup-section" id="setupSection">
+            <div class="quote-input-container">
+                <input type="text" id="quoteInput" placeholder="הכנס ציטוט מצחיק" class="quote-input">
+                <input type="text" id="authorInput" placeholder="מי אמר את זה?" class="author-input">
+                <button id="addQuote" class="button">
+                    <i class="fas fa-plus"></i>
+                    הוסף ציטוט
+                </button>
+            </div>
+
+            <div class="quotes-list" id="quotesList">
+                <h3>הציטוטים שהוספת:</h3>
+                <ul id="quotes"></ul>
+            </div>
+
+            <button id="startGame" class="button start-button" disabled>
+                <i class="fas fa-play"></i>
+                התחל משחק
+            </button>
+        </div>
+
+        <div class="game-section" id="gameSection" style="display: none;">
+            <div class="game-stats">
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span>ניקוד: <span id="score">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-list-ol"></i>
+                    <span>נותרו: <span id="remainingQuotes">0</span></span>
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="quote-text" id="currentQuote"></div>
+                <div class="options-container" id="options"></div>
+            </div>
+
+            <div class="result-message" id="resultMessage"></div>
+
+            <div class="game-controls">
+                <button id="nextQuote" class="button" style="display: none;">
+                    <i class="fas fa-forward"></i>
+                    הבא
+                </button>
+                <button id="endGame" class="button" style="display: none;">
+                    <i class="fas fa-stop"></i>
+                    סיים משחק
+                </button>
+            </div>
+        </div>
+
+        <div class="end-screen" id="endScreen" style="display: none;">
+            <h2>המשחק הסתיים!</h2>
+            <div class="final-score">
+                <i class="fas fa-trophy"></i>
+                <span>ניקוד סופי: <span id="finalScore">0</span></span>
+            </div>
+            <button id="playAgain" class="button">
+                <i class="fas fa-redo"></i>
+                שחק שוב
+            </button>
+        </div>
+    </div>
+
+    <script src="whosaid.js"></script>
+</body>
+</html>

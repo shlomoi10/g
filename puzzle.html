@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק פאזל - משחק משפחתי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                חזרה לדף הבית
+            </a>
+            <h1>משחק פאזל</h1>
+        </header>
+
+        <div class="setup-section">
+            <div class="upload-container" id="dropZone">
+                <label for="imageUpload" class="upload-label">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>גרור תמונה לכאן או לחץ לבחירה</span>
+                </label>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+
+            <div class="difficulty-controls">
+                <button class="difficulty-button active" data-rows="3" data-cols="3">קל (3x3)</button>
+                <button class="difficulty-button" data-rows="4" data-cols="4">בינוני (4x4)</button>
+                <button class="difficulty-button" data-rows="5" data-cols="5">קשה (5x5)</button>
+                <button class="difficulty-button" data-rows="custom" data-cols="custom">מותאם אישית</button>
+            </div>
+
+            <div class="custom-size" style="display: none;">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <input type="number" id="rows" min="2" max="10" value="3" placeholder="מספר שורות">
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <input type="number" id="cols" min="2" max="10" value="3" placeholder="מספר עמודות">
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="startGame" class="button" disabled>
+                    <i class="fas fa-play"></i>
+                    התחל משחק
+                </button>
+                <button id="shuffleButton" class="button" disabled>
+                    <i class="fas fa-random"></i>
+                    ערבב מחדש
+                </button>
+                <button id="resetButton" class="button" disabled>
+                    <i class="fas fa-undo"></i>
+                    אתחל משחק
+                </button>
+            </div>
+
+            <div class="game-stats">
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">00:00</span>
+                </div>
+                <div class="moves">
+                    <i class="fas fa-walking"></i>
+                    <span id="moveCount">0</span> מהלכים
+                </div>
+            </div>
+        </div>
+
+        <div class="game-section">
+            <div class="puzzle-container">
+                <div id="puzzle" class="puzzle-board"></div>
+                <div class="preview-panel">
+                    <img id="previewImage" alt="תמונת מקור">
+                    <button id="togglePreview" class="button">
+                        <i class="fas fa-eye"></i>
+                        הצג/הסתר תמונה מקורית
+                    </button>
+                </div>
+            </div>
+            
+            <div class="win-message" id="winMessage">
+                <i class="fas fa-trophy"></i>
+                <span>כל הכבוד! השלמת את הפאזל!</span>
+                <div class="win-stats">
+                    <div>זמן: <span id="finalTime">00:00</span></div>
+                    <div>מהלכים: <span id="finalMoves">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="puzzle.js"></script>
+</body>
+</html>

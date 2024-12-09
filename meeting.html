@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אם הייתי פוגש... - משחק משפחתי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meeting.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                חזרה לדף הבית
+            </a>
+            <h1>אם הייתי פוגש...</h1>
+        </header>
+
+        <div class="setup-section" id="setupSection">
+            <div class="input-container">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="whoInput" placeholder="את מי?" class="sentence-input">
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="whereInput" placeholder="איפה?" class="sentence-input">
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fas fa-comment"></i>
+                        <input type="text" id="whatInput" placeholder="מה הייתי עושה?" class="sentence-input">
+                    </div>
+                    <button id="addSentence" class="button">
+                        <i class="fas fa-plus"></i>
+                        הוסף משפט
+                    </button>
+                </div>
+            </div>
+
+            <div class="sentences-counter">
+                <i class="fas fa-list-ol"></i>
+                <span>מספר משפטים שהוכנסו: <span id="sentenceCount">0</span></span>
+            </div>
+
+            <button id="startGame" class="button start-button" disabled>
+                <i class="fas fa-play"></i>
+                התחל משחק
+            </button>
+        </div>
+
+        <div class="game-section" id="gameSection" style="display: none;">
+            <div class="sentence-card">
+                <div class="sentence-text">
+                    <div class="part who-part">
+                        <i class="fas fa-user"></i>
+                        <span id="currentWho"></span>
+                    </div>
+                    <div class="part where-part">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="currentWhere"></span>
+                    </div>
+                    <div class="part what-part">
+                        <i class="fas fa-comment"></i>
+                        <span id="currentWhat"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="nextSentence" class="button">
+                    <i class="fas fa-forward"></i>
+                    המשפט הבא
+                </button>
+                <button id="endGame" class="button">
+                    <i class="fas fa-stop"></i>
+                    סיים משחק
+                </button>
+            </div>
+        </div>
+
+        <div class="end-screen" id="endScreen" style="display: none;">
+            <h2>המשחק הסתיים!</h2>
+            <div class="end-message">
+                <i class="fas fa-laugh-beam"></i>
+                <span>איזה מפגשים מצחיקים!</span>
+            </div>
+            <button id="playAgain" class="button">
+                <i class="fas fa-redo"></i>
+                שחק שוב
+            </button>
+        </div>
+    </div>
+
+    <script src="meeting.js"></script>
+</body>
+</html>

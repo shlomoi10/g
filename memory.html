@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק זיכרון משפחתי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="memory.css">
+</head>
+<body>
+    <!-- כפתור חזרה לדף הבית -->
+<a href="index.html" class="back-button">
+    <i class="fas fa-home"></i>
+</a>
+    <!-- מודל להודעות -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="window.gameManager.closeModal()">סגור</button>
+                <h2 id="modal-header"></h2>
+                <p id="modal-content"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>משחק זיכרון משפחתי</h1>
+            <div class="game-controls">
+                <div class="control-group upload-section">
+                    <div class="upload-info">
+                        <p id="required-images-text">נדרשות <span id="required-images-count">0</span> תמונות למשחק</p>
+                        <input type="file" id="image-upload" accept="image/*" class="btn" multiple>
+                        <label for="image-upload" class="btn btn-primary">
+                            <i class="fas fa-upload"></i>
+                            העלאת תמונות
+                        </label>
+                    </div>
+                    <div class="uploaded-images" id="uploaded-images">
+                        <div class="image-preview-container" id="image-preview-container"></div>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <select id="grid-size" class="btn">
+                        <option value="4">2x2 (קל)</option>
+                        <option value="8">4x4 (בינוני)</option>
+                        <option value="12">6x6 (קשה)</option>
+                        <option value="16">8x8 (אתגר)</option>
+                    </select>
+                </div>
+
+                <button id="start-game" class="btn btn-success" disabled>
+                    <i class="fas fa-play"></i>
+                    התחל משחק
+                </button>
+                
+                <button id="reset-game" class="btn btn-warning">
+                    <i class="fas fa-redo"></i>
+                    משחק חדש
+                </button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">00:00</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sync"></i>
+                    <span id="moves">0</span> ניסיונות
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span id="matches">0</span> זוגות
+                </div>
+            </div>
+        </div>
+
+        <div class="game-board" id="game-board"></div>
+        <!-- פאנל בחירת צבע -->
+<div class="color-panel" id="color-panel">
+    <div class="color-option selected" style="background: linear-gradient(135deg, #4A90E2, #45B7D1)" data-color="linear-gradient(135deg, #4A90E2, #45B7D1)"></div>
+    <div class="color-option" style="background: linear-gradient(135deg, #2ECC71, #27AE60)" data-color="linear-gradient(135deg, #2ECC71, #27AE60)"></div>
+    <div class="color-option" style="background: linear-gradient(135deg, #E74C3C, #C0392B)" data-color="linear-gradient(135deg, #E74C3C, #C0392B)"></div>
+    <div class="color-option" style="background: linear-gradient(135deg, #F1C40F, #F39C12)" data-color="linear-gradient(135deg, #F1C40F, #F39C12)"></div>
+    <div class="color-option" style="background: linear-gradient(135deg, #9B59B6, #8E44AD)" data-color="linear-gradient(135deg, #9B59B6, #8E44AD)"></div>
+</div>
+    </div>
+
+    <script src="memory.js"></script>
+</body>
+</html>

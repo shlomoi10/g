@@ -1,0 +1,290 @@
+:root {
+    --primary-color: #4A90E2;
+    --primary-hover: #357ABD;
+    --secondary-color: #45B7D1;
+    --secondary-hover: #3B9EB5;
+    --success-color: #2ECC71;
+    --success-hover: #27AE60;
+    --error-color: #E74C3C;
+    --error-hover: #C0392B;
+    --background: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #2C3E50;
+    --border-radius: 12px;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --highlight-color: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background: var(--card-background);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-50%) translateX(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.setup-section, .game-section {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.quote-input-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quote-input, .author-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: var(--background);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.quote-input:focus, .author-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.start-button {
+    background: linear-gradient(45deg, var(--success-color), var(--success-hover));
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.quotes-list {
+    margin: 30px 0;
+}
+
+.quotes-list h3 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.quotes-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quotes-list li {
+    background: var(--background);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.quotes-list li:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.quotes-list li button {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.quotes-list li button:hover {
+    background: rgba(231, 76, 60, 0.1);
+    transform: rotate(90deg);
+}
+
+.quote-card {
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quote-text {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.option-button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-button:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.option-button.correct {
+    background: var(--success-color);
+    color: white;
+}
+
+.option-button.wrong {
+    background: var(--error-color);
+    color: white;
+}
+
+.result-message {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    min-height: 1.5em;
+}
+
+.result-message.correct {
+    color: var(--success-color);
+}
+
+.result-message.wrong {
+    color: var(--error-color);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.end-screen {
+    text-align: center;
+    padding: 40px;
+}
+
+.final-score {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .quote-input-container {
+        flex-direction: column;
+    }
+
+    .back-button {
+        position: static;
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .quote-card {
+        padding: 20px;
+    }
+
+    .quote-text {
+        font-size: 1.4rem;
+    }
+
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השלם את המשפט - משחק משפחתי</title>
+    <link rel="stylesheet" href="complete-sentence.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>השלם את המשפט</h1>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                חזרה למשחקים
+            </a>
+        </header>
+
+        <section class="setup-section">
+            <div class="players-section">
+                <h3><i class="fas fa-users"></i> שחקנים</h3>
+                <div class="players-list" id="playersList"></div>
+                <div class="add-player">
+                    <input type="text" id="playerName" placeholder="הכנס שם שחקן...">
+                    <button id="addPlayer" class="button">
+                        <i class="fas fa-user-plus"></i>
+                        הוסף שחקן
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-options">
+                <h3><i class="fas fa-gamepad"></i> בחר נושא</h3>
+                <div class="options-grid">
+                    <button class="category-btn active" data-category="family">
+                        <i class="fas fa-home"></i>
+                        <span>משפחה</span>
+                    </button>
+                    <button class="category-btn" data-category="funny">
+                        <i class="fas fa-laugh-beam"></i>
+                        <span>מצחיק</span>
+                    </button>
+                    <button class="category-btn" data-category="adventure">
+                        <i class="fas fa-mountain"></i>
+                        <span>הרפתקאות</span>
+                    </button>
+                    <button class="category-btn" data-category="jewish">
+                        <i class="fas fa-star-of-david"></i>
+                        <span>יהדות</span>
+                    </button>
+                    <button class="category-btn" data-category="holidays">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>חגים</span>
+                    </button>
+                    <button class="category-btn" data-category="mixed">
+                        <i class="fas fa-random"></i>
+                        <span>מעורב</span>
+                    </button>
+                </div>
+            </div>
+
+            <button id="startGame" class="button" disabled>
+                <i class="fas fa-play"></i>
+                התחל משחק
+            </button>
+        </section>
+
+        <section class="game-section" style="display: none;">
+            <div class="game-info">
+                <div class="current-player">
+                    <i class="fas fa-user"></i>
+                    <span>תור: </span>
+                    <span id="currentPlayer"></span>
+                </div>
+                <div class="round-info">
+                    <i class="fas fa-clock"></i>
+                    <span>סיבוב: </span>
+                    <span id="roundNumber"></span>
+                </div>
+            </div>
+
+            <div class="current-sentence">
+                <div class="sentence-start" id="sentenceStart"></div>
+                <input type="text" id="sentenceEnd" placeholder="השלם את המשפט...">
+                <button id="submitSentence" class="button">
+                    <i class="fas fa-paper-plane"></i>
+                    שלח תשובה
+                </button>
+            </div>
+
+            <div class="sentences-list" id="sentencesList"></div>
+        </section>
+
+        <section class="voting-section" style="display: none;">
+            <h3><i class="fas fa-vote-yea"></i> הצבעה</h3>
+            <p>בחר את התשובה הטובה ביותר!</p>
+            <div class="sentences-for-voting" id="votingList"></div>
+            <button id="finishVoting" class="button">
+                <i class="fas fa-check-circle"></i>
+                סיים הצבעה
+            </button>
+        </section>
+
+        <section class="results-section" style="display: none;">
+            <h2><i class="fas fa-trophy"></i> התוצאות</h2>
+            <div class="winners-list" id="winnersList"></div>
+            <button id="newGame" class="button">
+                <i class="fas fa-redo"></i>
+                משחק חדש
+            </button>
+        </section>
+    </div>
+
+    <script src="complete-sentence.js"></script>
+</body>
+</html>

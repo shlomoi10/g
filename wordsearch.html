@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפזורת משפחתית</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wordsearch.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">חזרה לדף הבית</a>
+            <h1>תפזורת משפחתית</h1>
+        </header>
+
+        <div class="setup-section" id="setupSection">
+            <div class="controls">
+                <div class="word-input-container">
+                    <input type="text" id="wordInput" placeholder="הכנס שם של בן משפחה" class="word-input">
+                    <button id="addWord" class="button">הוסף</button>
+                </div>
+                
+                <div class="grid-size-selector">
+                    <label>גודל לוח:</label>
+                    <select id="gridSize" class="select">
+                        <option value="8">8x8 (קל)</option>
+                        <option value="10">10x10 (בינוני)</option>
+                        <option value="12">12x12 (קשה)</option>
+                        <option value="15">15x15 (אתגר)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="word-list" id="wordList">
+                <h3>רשימת שמות:</h3>
+                <ul id="words"></ul>
+            </div>
+
+            <button id="startGame" class="button start-button" disabled>התחל משחק</button>
+        </div>
+
+        <div class="game-section" id="gameSection" style="display: none;">
+            <div class="game-stats">
+                <span>נמצאו: <span id="foundWords">0</span>/<span id="totalWords">0</span></span>
+                <span>זמן: <span id="timer">00:00</span></span>
+            </div>
+
+            <div class="game-container">
+                <div class="word-search-container">
+                    <div id="wordSearchBoard" class="word-search-board"></div>
+                </div>
+                
+                <div class="remaining-words">
+                    <h3>שמות לחיפוש:</h3>
+                    <ul id="remainingWordsList"></ul>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="newGame" class="button">משחק חדש</button>
+                <button id="showHint" class="button">רמז</button>
+            </div>
+        </div>
+    </div>
+    <script src="wordsearch.js"></script>
+</body>
+</html>

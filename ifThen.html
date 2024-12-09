@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אילו... אז... - משחק משפחתי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ifThen.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                חזרה לדף הבית
+            </a>
+            <h1>אילו... אז...</h1>
+        </header>
+
+        <div class="setup-section" id="setupSection">
+            <div class="input-container">
+                <div class="input-group">
+                    <input type="text" id="ifInput" placeholder="אילו..." class="sentence-input">
+                    <input type="text" id="thenInput" placeholder="אז..." class="sentence-input">
+                    <button id="addSentence" class="button">
+                        <i class="fas fa-plus"></i>
+                        הוסף משפט
+                    </button>
+                </div>
+            </div>
+
+            <div class="sentences-counter">
+                <i class="fas fa-list-ol"></i>
+                <span>מספר משפטים שהוכנסו: <span id="sentenceCount">0</span></span>
+            </div>
+
+            <button id="startGame" class="button start-button" disabled>
+                <i class="fas fa-play"></i>
+                התחל משחק
+            </button>
+        </div>
+
+        <div class="game-section" id="gameSection" style="display: none;">
+            <div class="sentence-card">
+                <div class="sentence-text">
+                    <span id="currentIf" class="if-part"></span>
+                    <span id="currentThen" class="then-part"></span>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="nextSentence" class="button">
+                    <i class="fas fa-forward"></i>
+                    המשפט הבא
+                </button>
+                <button id="endGame" class="button">
+                    <i class="fas fa-stop"></i>
+                    סיים משחק
+                </button>
+            </div>
+        </div>
+
+        <div class="end-screen" id="endScreen" style="display: none;">
+            <h2>המשחק הסתיים!</h2>
+            <div class="end-message">
+                <i class="fas fa-laugh-beam"></i>
+                <span>תודה ששיחקתם!</span>
+            </div>
+            <button id="playAgain" class="button">
+                <i class="fas fa-redo"></i>
+                שחק שוב
+            </button>
+        </div>
+    </div>
+
+    <script src="ifThen.js"></script>
+</body>
+</html>
