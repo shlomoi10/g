@@ -7,9 +7,17 @@ class WordSearchGame {
         this.selectedCells = [];
         this.seconds = 0;
         this.timerInterval = null;
+        this.hintsUsed = 0;
+        this.difficultyLevel = 1; // 1 for easiest
+        this.maxHints = this.calculateMaxHints(); // Calculate based on difficulty
         
         this.initializeElements();
         this.addEventListeners();
+        this.updateHintsDisplay();
+    }
+
+    calculateMaxHints() {
+        return this.difficultyLevel; // Adjust this logic for different difficulty levels
     }
 
     initializeElements() {
@@ -30,6 +38,7 @@ class WordSearchGame {
         this.timerElement = document.getElementById('timer');
         this.newGameButton = document.getElementById('newGame');
         this.hintButton = document.getElementById('showHint');
+        this.hintsCountElement = document.getElementById('hintsCount');
     }
 
     addEventListeners() {
@@ -168,7 +177,7 @@ class WordSearchGame {
     canPlaceWord(word, startX, startY, dx, dy) {
         let x = startX;
         let y = startY;
-
+        
         for (let i = 0; i < word.length; i++) {
             if (x < 0 || x >= this.gridSize || y < 0 || y >= this.gridSize) {
                 return false;
@@ -324,6 +333,11 @@ class WordSearchGame {
     }
 
     showHint() {
+        if (this.hintsUsed >= this.maxHints) {
+            alert('הגעת למקסימום הרמזים המותרים לדרגה זו');
+            this.hintButton.disabled = true;
+            return;
+        }
         // Find a random unfound word
         const unfoundWords = this.words.filter(word => !this.foundWords.has(word));
         if (unfoundWords.length === 0) return;
@@ -342,6 +356,8 @@ class WordSearchGame {
                 }
             }
         }
+        this.hintsUsed++;
+        this.updateHintsDisplay();
     }
 
     checkWordAtPosition(word, startX, startY, dx, dy) {
@@ -409,6 +425,12 @@ class WordSearchGame {
         clearInterval(this.timerInterval);
         this.seconds = 0;
         this.updateTimer();
+    }
+
+    updateHintsDisplay() {
+        const hintsRemaining = this.maxHints - this.hintsUsed;
+        this.hintsCountElement.textContent = hintsRemaining;
+        this.hintButton.disabled = hintsRemaining <= 0;
     }
 }
 

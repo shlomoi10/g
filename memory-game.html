@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק זיכרון תמונות</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="memory-game.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">חזרה לדף הבית</a>
+            <h1>משחק זיכרון תמונות</h1>
+        </header>
+
+        <!-- הגדרות המשחק -->
+        <div class="setup-section" id="setupSection">
+            <div class="image-upload">
+                <h3>העלאת תמונה חדשה</h3>
+                <input type="file" id="imageUpload" accept="image/*">
+                <div class="image-container">
+                    <div class="image-preview" id="imagePreview">
+                        <p>העלה תמונה והשתמש בכלי הסימון כדי לבחור את האזור לתשובה</p>
+                    </div>
+                    <div class="crop-controls" style="display: none;">
+                        <button id="confirmCrop" class="button">אשר בחירת אזור</button>
+                        <button id="resetCrop" class="button">נקה בחירה</button>
+                    </div>
+                </div>
+                
+                <div class="image-details">
+                    <input type="text" id="questionInput" placeholder="הכנס שאלה על התמונה">
+                    <input type="text" id="answerInput" placeholder="התשובה הנכונה">
+                    <div class="time-settings">
+                        <label>זמן צפייה בתמונה:</label>
+                        <input type="number" id="viewTime" value="10" min="5" max="60" style="width: 80px;">
+                        <span>שניות</span>
+                    </div>
+                    <button id="addImage" class="button">הוסף תמונה למשחק</button>
+                </div>
+            </div>
+
+            <div class="images-list" id="imagesList">
+                <h3>תמונות במשחק:</h3>
+                <div id="uploadedImages"></div>
+            </div>
+
+            <button id="startGame" class="button start-button" disabled>התחל משחק</button>
+            <button id="saveGameAsZip" class="button">שמור משחק כ-ZIP</button>
+            <input type="file" id="loadGameFromZipInput" style="display:none;" accept=".zip">
+            <button id="loadGameFromZip" class="button">טען משחק מ-ZIP</button>
+        </div>
+
+        <!-- מסך המשחק -->
+        <div class="game-section" id="gameSection" style="display: none;">
+            <div class="game-display">
+                <div id="timer" class="timer"></div>
+                <div id="imageDisplay" class="image-display"></div>
+                <div id="questionDisplay" class="question-display"></div>
+                <div id="answerDisplay" class="answer-display"></div>
+            </div>
+            <button id="nextQuestion" class="button">השאלה הבאה</button>
+            <button id="newGame" class="button">משחק חדש</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="memory-game.js" defer></script>
+</body>
+</html>
